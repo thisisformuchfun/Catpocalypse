@@ -70,7 +70,7 @@ pause={
 
 [physics]
 
-3d/default_gravity=9.8
+3d/default_gravity=20.0
 3d/default_linear_damp=0.1
 3d/default_angular_damp=0.1
 
