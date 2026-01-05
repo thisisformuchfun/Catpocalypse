@@ -215,6 +215,12 @@ test_level.tscn
 - [ ] CONVERT state incomplete
 - [ ] No cat spawner implemented yet (CatSpawner script exists but not in scene)
 
+### Recent Fixes (2026-01-05)
+- ✓ Fixed wall and prop meshes not rendering (proper SubResource structure)
+- ✓ Increased gravity from 9.8 to 20.0 for better jump feel
+- ✓ Changed prop boxes to CSGBox3D for instant collision
+- ✓ Added golden material to interactable test box for visibility
+
 ### Next Steps After Testing
 Once all tests pass:
 1. Add cat spawner to test level for multi-cat testing
