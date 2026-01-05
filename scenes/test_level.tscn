@@ -14,6 +14,45 @@ size = Vector3(20, 0.2, 20)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_floor"]
 albedo_color = Color(0.6, 0.6, 0.6, 1)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wall"]
+albedo_color = Color(0.8, 0.7, 0.6, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_wall"]
+size = Vector3(20, 3, 0.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wall"]
+size = Vector3(20, 3, 0.2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_wall_side"]
+size = Vector3(0.2, 3, 20)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wall_side"]
+size = Vector3(0.2, 3, 20)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_prop"]
+albedo_color = Color(0.7, 0.5, 0.3, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_prop"]
+size = Vector3(1, 1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_prop"]
+size = Vector3(1, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_prop_large"]
+size = Vector3(1.5, 1.5, 1.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_prop_large"]
+size = Vector3(1.5, 1.5, 1.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_interactable"]
+size = Vector3(0.8, 0.8, 0.8)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_interactable"]
+size = Vector3(0.8, 0.8, 0.8)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_interactable"]
+albedo_color = Color(0.3, 0.8, 0.3, 1)
+
 [sub_resource type="NavigationMesh" id="NavigationMesh_1"]
 vertices = PackedVector3Array(-10, 0.1, -10, -10, 0.1, 10, 10, 0.1, 10, 10, 0.1, -10)
 polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
@@ -53,53 +92,41 @@ shape = SubResource("BoxShape3D_floor")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -10)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Walls/WallNorth"]
-
-[node name="BoxMesh" type="BoxMesh" parent="Walls/WallNorth/MeshInstance3D"]
-size = Vector3(20, 3, 0.2)
+mesh = SubResource("BoxMesh_wall")
+surface_material_override/0 = SubResource("StandardMaterial3D_wall")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/WallNorth"]
-
-[node name="BoxShape3D" type="BoxShape3D" parent="Walls/WallNorth/CollisionShape3D"]
-size = Vector3(20, 3, 0.2)
+shape = SubResource("BoxShape3D_wall")
 
 [node name="WallSouth" type="StaticBody3D" parent="Walls"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 10)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Walls/WallSouth"]
-
-[node name="BoxMesh" type="BoxMesh" parent="Walls/WallSouth/MeshInstance3D"]
-size = Vector3(20, 3, 0.2)
+mesh = SubResource("BoxMesh_wall")
+surface_material_override/0 = SubResource("StandardMaterial3D_wall")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/WallSouth"]
-
-[node name="BoxShape3D" type="BoxShape3D" parent="Walls/WallSouth/CollisionShape3D"]
-size = Vector3(20, 3, 0.2)
+shape = SubResource("BoxShape3D_wall")
 
 [node name="WallEast" type="StaticBody3D" parent="Walls"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 1.5, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Walls/WallEast"]
-
-[node name="BoxMesh" type="BoxMesh" parent="Walls/WallEast/MeshInstance3D"]
-size = Vector3(0.2, 3, 20)
+mesh = SubResource("BoxMesh_wall_side")
+surface_material_override/0 = SubResource("StandardMaterial3D_wall")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/WallEast"]
-
-[node name="BoxShape3D" type="BoxShape3D" parent="Walls/WallEast/CollisionShape3D"]
-size = Vector3(0.2, 3, 20)
+shape = SubResource("BoxShape3D_wall_side")
 
 [node name="WallWest" type="StaticBody3D" parent="Walls"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 1.5, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Walls/WallWest"]
-
-[node name="BoxMesh" type="BoxMesh" parent="Walls/WallWest/MeshInstance3D"]
-size = Vector3(0.2, 3, 20)
+mesh = SubResource("BoxMesh_wall_side")
+surface_material_override/0 = SubResource("StandardMaterial3D_wall")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/WallWest"]
-
-[node name="BoxShape3D" type="BoxShape3D" parent="Walls/WallWest/CollisionShape3D"]
-size = Vector3(0.2, 3, 20)
+shape = SubResource("BoxShape3D_wall_side")
 
 [node name="Props" type="Node3D" parent="."]
 
@@ -110,53 +137,41 @@ collision_mask = 0
 script = ExtResource("4_testbox")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Props/InteractableBox"]
-
-[node name="BoxMesh" type="BoxMesh" parent="Props/InteractableBox/MeshInstance3D"]
-size = Vector3(0.8, 0.8, 0.8)
+mesh = SubResource("BoxMesh_interactable")
+surface_material_override/0 = SubResource("StandardMaterial3D_interactable")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Props/InteractableBox"]
-
-[node name="BoxShape3D" type="BoxShape3D" parent="Props/InteractableBox/CollisionShape3D"]
-size = Vector3(0.8, 0.8, 0.8)
+shape = SubResource("BoxShape3D_interactable")
 
 [node name="Box1" type="StaticBody3D" parent="Props"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0.5, 3)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Props/Box1"]
-
-[node name="BoxMesh" type="BoxMesh" parent="Props/Box1/MeshInstance3D"]
-size = Vector3(1, 1, 1)
+mesh = SubResource("BoxMesh_prop")
+surface_material_override/0 = SubResource("StandardMaterial3D_prop")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Props/Box1"]
-
-[node name="BoxShape3D" type="BoxShape3D" parent="Props/Box1/CollisionShape3D"]
-size = Vector3(1, 1, 1)
+shape = SubResource("BoxShape3D_prop")
 
 [node name="Box2" type="StaticBody3D" parent="Props"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0.5, -3)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Props/Box2"]
-
-[node name="BoxMesh" type="BoxMesh" parent="Props/Box2/MeshInstance3D"]
-size = Vector3(1, 1, 1)
+mesh = SubResource("BoxMesh_prop")
+surface_material_override/0 = SubResource("StandardMaterial3D_prop")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Props/Box2"]
-
-[node name="BoxShape3D" type="BoxShape3D" parent="Props/Box2/CollisionShape3D"]
-size = Vector3(1, 1, 1)
+shape = SubResource("BoxShape3D_prop")
 
 [node name="Box3" type="StaticBody3D" parent="Props"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0.75, 5)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Props/Box3"]
-
-[node name="BoxMesh" type="BoxMesh" parent="Props/Box3/MeshInstance3D"]
-size = Vector3(1.5, 1.5, 1.5)
+mesh = SubResource("BoxMesh_prop_large")
+surface_material_override/0 = SubResource("StandardMaterial3D_prop")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Props/Box3"]
-
-[node name="BoxShape3D" type="BoxShape3D" parent="Props/Box3/CollisionShape3D"]
-size = Vector3(1.5, 1.5, 1.5)
+shape = SubResource("BoxShape3D_prop_large")
 
 [node name="Entities" type="Node3D" parent="."]
 
