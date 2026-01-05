@@ -25,8 +25,13 @@ git clone https://github.com/thisisformuchfun/Catpocalypse.git
 # Navigate to project
 cd Catpocalypse
 
-# See ARCHITECTURE.md for engine-specific setup instructions
+# Install Godot 4.2+ from https://godotengine.org/download
+# Open project.godot in Godot Editor
+
+# See GODOT_SETUP.md for detailed setup instructions
 ```
+
+For detailed setup instructions, see [Godot Setup Guide](docs/GODOT_SETUP.md).
 
 ## 📋 Table of Contents
 
@@ -194,10 +199,13 @@ Player Interaction Loop:
 - ✅ Repository structure
 - ✅ Documentation framework
 - ✅ Architecture planning
+- ✅ Engine selection (Godot 4.x)
+- ✅ Basic project setup
 
 ### In Progress
-- 🚧 Engine selection (See [ADR-001](docs/architecture/adr-001-engine-selection.md))
 - 🚧 Core gameplay systems design
+- 🚧 First-person player controller
+- 🚧 Cat AI implementation
 
 ### Planned
 
@@ -278,10 +286,10 @@ See [ROADMAP.md](docs/ROADMAP.md) for detailed development timeline and mileston
 ### Current Phase: **Pre-Alpha - Foundation**
 
 **Immediate Priorities:**
-1. ⚡ Engine selection (Unity vs Godot vs Unreal vs Custom)
-2. ⚡ Prototype player controller
+1. ✅ Engine selection (Godot 4.x) - **COMPLETED**
+2. ⚡ Prototype player controller (in progress)
 3. ⚡ Basic apartment environment
-4. ⚡ Single cat AI prototype
+4. ⚡ Single cat AI prototype (in progress)
 
 ## 🎨 Art Direction
 
@@ -335,6 +343,6 @@ This game draws inspiration from:
 
 **Status**: 🚧 Pre-Alpha Development
 **Started**: January 2026
-**Engine**: TBD
+**Engine**: Godot 4.x
 **Target Platform**: PC (Windows/Mac/Linux)
 **Developer**: [@thisisformuchfun](https://github.com/thisisformuchfun)
