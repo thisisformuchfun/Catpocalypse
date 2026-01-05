@@ -112,6 +112,24 @@ func _change_state(new_state: CatState):
 	state_timer = 0.0
 	# TODO: Update animations based on state
 
+func get_state_name() -> String:
+	match current_state:
+		CatState.IDLE:
+			return "IDLE"
+		CatState.CUTE:
+			return "CUTE"
+		CatState.CURIOUS:
+			return "CURIOUS"
+		CatState.HUNT:
+			return "HUNT"
+		CatState.STALK:
+			return "STALK"
+		CatState.ATTACK:
+			return "ATTACK"
+		CatState.CONVERT:
+			return "CONVERT"
+	return "UNKNOWN"
+
 func _detect_player():
 	# Simple detection - find player in scene
 	var players = get_tree().get_nodes_in_group("player")
@@ -131,6 +149,18 @@ func _move_toward_player(speed: float):
 	if not target_player:
 		return
 
-	var direction = (target_player.global_position - global_position).normalized()
+	# Use NavigationAgent3D for pathfinding
+	navigation_agent.target_position = target_player.global_position
+
+	if navigation_agent.is_navigation_finished():
+		return
+
+	var next_position = navigation_agent.get_next_path_position()
+	var direction = (next_position - global_position).normalized()
 	velocity.x = direction.x * speed
 	velocity.z = direction.z * speed
+
+	# Rotate to face movement direction
+	if direction.length() > 0.01:
+		var target_rotation = atan2(direction.x, direction.z)
+		rotation.y = lerp_angle(rotation.y, target_rotation, 0.1)
