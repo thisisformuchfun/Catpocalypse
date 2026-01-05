@@ -1,0 +1,6 @@
+<svg height="128" width="128" xmlns="http://www.w3.org/2000/svg">
+  <!-- Placeholder icon for Schrödinger's Catpocalypse -->
+  <rect fill="#4a4a4a" height="128" width="128"/>
+  <circle cx="64" cy="64" r="50" fill="#ff6b9d"/>
+  <text x="64" y="80" font-family="Arial" font-size="60" fill="#fff" text-anchor="middle">🐱</text>
+</svg>

@@ -1,7 +1,8 @@
 # ADR-001: Engine Selection
 
-**Status**: Proposed
+**Status**: Accepted
 **Date**: January 2026
+**Decision Date**: January 5, 2026
 **Deciders**: Lead Developer
 **Priority**: Critical (Blocks all development)
 
@@ -172,7 +173,7 @@ We need to select a game engine for Schrödinger's Catpocalypse. This is the mos
 
 ## Decision Outcome
 
-### Chosen Option: **Godot 4.x** (Tentative)
+### Chosen Option: **Godot 4.x**
 
 **Rationale**:
 
@@ -261,11 +262,12 @@ If Godot's 3D performance or tooling proves insufficient during vertical slice:
 
 ## Follow-Up Actions
 
+- [x] Finalize engine selection decision
 - [ ] Install Godot 4.2+
+- [ ] Set up project structure in Godot
 - [ ] Complete FPS controller tutorial
-- [ ] Build vertical slice prototype in Godot
+- [ ] Build vertical slice prototype
 - [ ] Performance test on target hardware
-- [ ] Final engine decision by end of Month 1
 
 ## References
 
@@ -276,6 +278,7 @@ If Godot's 3D performance or tooling proves insufficient during vertical slice:
 
 ---
 
-**Decision Status**: ⚠️ Tentative (Final decision after prototyping)
-**Review Date**: End of Month 1
+**Decision Status**: ✅ Accepted
+**Decision Date**: January 5, 2026
+**Review Date**: End of Month 1 (for validation)
 **Author**: Development Team
